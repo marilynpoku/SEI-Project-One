@@ -2,7 +2,6 @@ function init() {
 
 
   // Elements
-
   const grid = document.querySelector('.grid')
   const width = 10
   const cellCount = width * width
@@ -12,8 +11,6 @@ function init() {
 
   let lives = 3
   let score = 0
-  let highscore = 0
-
 
   //Mario
   const marioClass = 'mario'
@@ -44,8 +41,26 @@ function init() {
   const startClass = 'start'
   const roadClass = 'road'
 
+  //Overlay elements
+  const gamePopUps = document.querySelectorAll('popUps')
+  const buttons = document.querySelectorAll('buttons')
+  const gameOverOverlay = document.querySelector('.game-over-popUp-container')
+  const winGameOveraly = document.querySelector('start-game-popUp-container')
+
+
+  
+
 
   //Functions
+
+  //Start Game 
+
+  function startGame{
+    
+  }
+
+
+
 
   //Function to create a by 10 by 10
   function createGrid(marioStartPosition) {
@@ -134,16 +149,16 @@ function init() {
   }
 
   //Function to resetGame
-  function resetGame() { //reset positions of Marios at home
-    // const divHomeClass = document.querySelectorAll('race-car')
-    // divHomeClass.style.display = 'none'
-    score = 0
-    displayScore()
-    lives = 0 
-    displayLives()
-    removeMario(marioCurrentPosition)
-    addMario(marioStartPosition)
-  }
+  // function resetGame() { //reset positions of Marios at home
+  //   // const divHomeClass = document.querySelectorAll('race-car')
+  //   // divHomeClass.style.display = 'none'
+  //   score = 0
+  //   displayScore()
+  //   lives = 0 
+  //   displayLives()
+  //   removeMario(marioCurrentPosition)
+  //   addMario(marioStartPosition)
+  // }
 
   // Function for for game over
   // function gameOver(){
@@ -153,8 +168,7 @@ function init() {
   // Function to check for win 
   function winGame(){
     if (score === 4000) {
-      console.log('checking the result for winning the game')
-      resetGame()
+      // winPopUp.style.display = 'block'
     } else if (cells[marioCurrentPosition].classList.contains(homeClass)) {
       score += 1000
       displayScore()
@@ -273,6 +287,7 @@ function init() {
       collision()
       // console.log(timer)
     },750)
+    winGame()
   }
 
   createGrid(marioStartPosition)

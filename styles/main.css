@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+}
+
+aside {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grid-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  width: 700px;
+  box-shadow: 5px 10px 18px #888888;
+  border: 2px solid black;
+}
+
+.grid div {
+  border: 1px solid rgb(22, 21, 21);
+  flex-grow: 1;
+  height: 10%;
+  width: 10%;
+}
+
+
+.grid div.home {
+  /* background-image: url('../assets/car-right.jpeg');
+background-repeat: no-repeat;
+background-size: contain; */
+cursor: pointer; 
+background-color: orange;
+}
+
+.grid div.homeicons {
+  /* background-image: url('../assets/car-right.jpeg');
+background-repeat: no-repeat;
+background-size: contain; */
+cursor: pointer; 
+background-color:purple;
+}
+
+.grid div.river {
+  /* background-image: url('../assets/car-right.jpeg');
+background-repeat: no-repeat;
+background-size: contain; */
+cursor: pointer; 
+background-color:cornflowerblue;
+}
+
+
+.grid div.safe {
+  /* background-image: url('../assets/car-right.jpeg');
+background-repeat: no-repeat;
+background-size: contain; */
+cursor: pointer; 
+background-color: rgb(255, 0, 166);
+}
+
+.grid div.start {
+  /* background-image: url('../assets/car-right.jpeg');
+background-repeat: no-repeat;
+background-size: contain; */
+cursor: pointer; 
+background-color: yellowgreen;
+}
+
+.grid div.road {
+  /* background-image: url('../assets/car-right.jpeg');
+background-repeat: no-repeat;
+background-size: contain; */
+cursor: pointer; 
+background-color: grey;
+}
+
+.grid div.goomba {
+  background-image: url('../assets/goomba.png');
+background-repeat: no-repeat;
+background-size: contain;
+cursor: pointer; 
+}
+
+.grid div.bomb {
+  background-image: url('../assets/bomb.png');
+background-repeat: no-repeat;
+background-size: contain;
+}
+
+.grid div.blue-mushroom {
+background-image: url('../assets/blue mushroom.png');
+background-repeat: no-repeat;
+background-size: contain;
+}
+
+.grid div.star {
+  background-image: url('../assets/star.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  }
+
+  .grid div.race-car {
+    background-image: url('../assets/mario-home.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    }
+
+    .grid div.mario  {
+      background-image: url('../assets/mario.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer; 
+    }
+    
+
+
+
+
+
+
+
+

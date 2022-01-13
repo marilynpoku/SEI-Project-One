@@ -7,6 +7,10 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('../assets/background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
 }
 
 .start-game-popUp-container {
@@ -23,71 +27,109 @@ body{
   background-color: white;
   opacity: 0;
   pointer-events: none;
-  background-image: url(../assets/Mario\ banner.jpeg);
+  background-image: url(../assets/background.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.start-game-popUp-container.active {
+.start-game-popUp-container.activate-popup {
   opacity: 1;
   pointer-events: auto;
 }
 
+.start-game-popup  {
+  background-color: hsl(95, 89%, 93%);
+  border: none;
+  box-shadow: 0 0 20px 0 rgb(217, 246, 189);
+  border-radius: 5%;
+  color:hsl(140, 51%, 39%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 60vh;
+}
+
+.start-game-popUp-container h1 {
+text-transform: uppercase;
+font-size: 50px;
+}
 
 
+.start-popup-text {
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.start-btn {
+  font-size: 25px;
+  background-color: hsl(140, 51%, 39%);
+  border: none;
+  box-shadow: 0 0 20px 0 rgb(135, 200, 74);
+  border-radius: 18px;
+  width: 140px;
+  height: 50px;
+  font-family: sans-serif;
+  font-size: 30px;
+  color:hsl(95, 89%, 93%);
+}
 
 
 .win-popUp-container {
-  position: fixed; 
-  width: 100%; 
-  height: 100%; 
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  transition: all 300ms;
   background-color: yellow;
   opacity: 0;
-  display: none;
+  pointer-events: none;
 }
 
-.win-popUp-container.active {
+.win-popUp-container.activate-popup {
   opacity: 1;
   pointer-events: auto;
 }
 
 .game-over-popUp-container {
-  position: fixed; 
-  width: 100%; 
-  height: 100%; 
+position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: lavender;
+  transition: all 300ms;
+  background-color: white;
   opacity: 0;
-  display: none;
+  pointer-events: none;
 }
 
-.game-over-popUp-container.active {
+.game-over-popUp-container.activate-popup {
   opacity: 1;
   pointer-events: auto;
 }
 
 .score-container {
-  display: inline
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-
-h1 {
-  text-align: center;
+.score-container h4 {
+  padding: 5px;
+  font-size: 20px;
+  color:hsl(221, 64%, 50%);
+  margin-bottom: 0;
 }
 
 .grid-container {
@@ -96,6 +138,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 20%;
 }
 
 .grid {
@@ -103,10 +146,13 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: 800px;
-  width: 800px;
-  box-shadow: 5px 10px 18px #888888;
-  border: 2px solid black;
+  height: 700px;
+  width: 700px;
+  background-color: hsl(95, 89%, 93%);
+  border: none;
+  box-shadow: 0 0 20px 0 rgb(217, 246, 189);
+  border-radius: 5%;
+  color:hsl(140, 51%, 39%);
 }
 
 .grid div {
@@ -114,49 +160,31 @@ h1 {
   flex-grow: 1;
   height: 10%;
   width: 10%;
+  border: none;
 }
 
 .grid div.home {
-  /* background-image: url('../assets/car-right.jpeg');
+/* background-image: url('../assets/finish.jpeg');
 background-repeat: no-repeat;
-background-size: contain; */
-cursor: pointer; 
-background-color: orange;
+background-size: cover; */
+background-color: hsl(95, 89%, 93%);
 }
 
-.grid div.homeicons {
-  /* background-image: url('../assets/car-right.jpeg');
-background-repeat: no-repeat;
-background-size: contain; */
-cursor: pointer; 
-background-color:purple;
-}
 
 .grid div.river {
-  /* background-image: url('../assets/car-right.jpeg');
-background-repeat: no-repeat;
-background-size: contain; */
-cursor: pointer; 
 background-color:cornflowerblue;
 }
 
-.grid div.safe {
-  /* background-image: url('../assets/car-right.jpeg');
-background-repeat: no-repeat;
-background-size: contain; */
-cursor: pointer; 
-background-color: rgb(255, 0, 166);
+.grid div.safe { 
+background-color:  rgb(154,205,50);
 }
 
 .grid div.start {
-/* background-image: url('../assets/grass.jpeg');
-background-size: contain;
-cursor: pointer;  */
-background-color: yellowgreen;
+background-color: rgb(154,205,50);
 }
 
 .grid div.road {
-background-color: grey;
+background-color:  rgb(154,205,50);
 }
 
 .grid div.goomba {
@@ -189,11 +217,31 @@ background-size: contain;
   background-size: contain;
   }
 
+
 .grid div.mario  {
   background-image: url('../assets/mario.png');
   background-repeat: no-repeat;
   background-size: contain;
+  }
+
+  
+
+
+/* .grid div.mario-mushroom  {
+  background-image: url('../assets/Mario Mushroom.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
+
+.grid div.mario-stars  {
+  background-image: url('../assets/Mario Star.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+} */
+
+
+
+
 
 
 

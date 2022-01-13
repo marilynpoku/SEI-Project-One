@@ -14,15 +14,16 @@ function init() {
   const marioClass = 'mario'
   const marioStartPosition = 94
   let marioCurrentPosition = marioStartPosition
-  // const marioMushroomClass = 'mario-mushroom'
-  // const marioStarsClass = 'mario-stars'
 
+  const marioOnMushroomClass = 'activate-mushroom'
+  const marioOnStarClass  = 'activate-star'
+ 
   //Goombas
-  const goombas = [89, 87, 84]
+  const goombas = [89, 87, 85, 81]
   const goombasClass = 'goomba'
 
   //Bomb
-  const bomb = [60, 63, 65]
+  const bomb = [60, 63, 65, 67]
   const bombClass = 'bomb'
 
   //Blue Mushrooms
@@ -58,25 +59,24 @@ function init() {
       grid.appendChild(cell)
       cells.push(cell)
 
-      // Control flow to create classes for styling cells (update at the end)
       if (i === 0 || i === 9) {
         cell.classList.add(riverClass)
       } else if (i >= 1 && i <= 8 && i % 2 === 0) {
-        cell.classList.add(riverClass)  
+        cell.classList.add(riverClass)
       } else if (i >= 0 && i < 9 && i % 2 !== 0) {
-        cell.classList.add(homeClass) 
+        cell.classList.add(homeClass)
       } else if (i >= 10 && i <= 49) {
-        cell.classList.add(riverClass) 
+        cell.classList.add(riverClass)
       } else if (i >= 50 && i <= 59) {
-        cell.classList.add(safeClass)  
+        cell.classList.add(safeClass)
       } else if (i >= 60 && i <= 69) {
-        cell.classList.add(roadClass) 
+        cell.classList.add(roadClass)
       } else if (i >= 70 && i <= 79) {
-        cell.classList.add(safeClass) 
+        cell.classList.add(safeClass)
       } else if (i >= 80 && i <= 89) {
-        cell.classList.add(roadClass) 
+        cell.classList.add(roadClass)
       } else if (i >= 90 && i <= 99) {
-        cell.classList.add(startClass) 
+        cell.classList.add(startClass)
       } else {
         console.log('classes added')
       }
@@ -104,6 +104,11 @@ function init() {
     cells[position].classList.remove(marioClass)
   }
 
+  // Function to remove Mario on mushrooms and obstacles
+  function removeMarioOnObstacles(){
+    cells[marioCurrentPosition].classList.remove(marioOnMushroomClass)
+    cells[marioCurrentPosition].classList.remove(marioOnStarClass)
+  }
 
   // Function to move Mario
   function moveMario(e) {
@@ -115,6 +120,7 @@ function init() {
     const down = 40
 
     removeMario(marioCurrentPosition)
+    removeMarioOnObstacles()
 
     if (key === right && marioCurrentPosition % width !== width - 1) {
       marioCurrentPosition++
@@ -130,7 +136,7 @@ function init() {
     addMario(marioCurrentPosition)
     collision()
     displayScore()
-    // gameOver()
+    gameOver()
   }
 
   // Function to display lives
@@ -147,27 +153,20 @@ function init() {
   }
 
   // Function to resetGame
-  // function resetGame() {
-  //   createGrid()
-  //   addMario(marioStartPosition)
-  //   moveObstacles()
-  //   displayLives()
-  //   displayScore()
-  //   collision()
+  function resetGame() {
+    window.location.reload()
+  }
 
-  // }
+  //Function for for game over
+  function gameOver(){
+    if (lives === 0 ) {
+      gameOverOverlay.classList.add('activate-popup')
+    } 
+  }
 
-  // Function for for game over
-  // function gameOver(){
-  //   if (lives >= 0 ) {
-  //     // gameOverOverlay.classList.add('initiate')
-  //     // resetGame()
-  //   } 
-  // }
-
-  // Function to check for win 
+  //Function to check for win 
   function winGame() {
-    if  (score >= 4000) {
+    if (score >= 4000) {
       winGameOverlay.classList.add('activate-popup')
     } else if (cells[marioCurrentPosition].classList.contains(homeClass)) {
       score += 1000
@@ -178,7 +177,6 @@ function init() {
       addMario(marioCurrentPosition)
     }
   }
-
 
   //Function to check for collisions
   function collision() {
@@ -236,11 +234,15 @@ function init() {
     if (cells[marioCurrentPosition].classList.contains(blueMushroomClass)) {
       if (marioCurrentPosition === 49 || marioCurrentPosition === 29) {
         removeMario(marioCurrentPosition)
+        //remove mario on a mushroom class from mario current position 
+        cells[marioCurrentPosition].classList.remove(marioOnMushroomClass)
         marioCurrentPosition -= width
       }
       removeMario(marioCurrentPosition)
+      cells[marioCurrentPosition].classList.remove(marioOnMushroomClass)
       marioCurrentPosition += 1
       addMario(marioCurrentPosition)
+      cells[marioCurrentPosition].classList.add(marioOnMushroomClass)
     }
     blueMushroom.forEach((position, index) => {
       if (position === 29 || position === 49) {
@@ -260,11 +262,14 @@ function init() {
     if (cells[marioCurrentPosition].classList.contains(starClass)) {
       if (marioCurrentPosition === 10 || marioCurrentPosition === 30) {
         removeMario(marioCurrentPosition)
+        cells[marioCurrentPosition].classList.remove(marioOnStarClass)
         marioCurrentPosition += width
       }
       removeMario(marioCurrentPosition)
+      cells[marioCurrentPosition].classList.remove(marioOnStarClass)
       marioCurrentPosition -= 1
       addMario(marioCurrentPosition)
+      cells[marioCurrentPosition].classList.add(marioOnStarClass)
     }
     star.forEach((position, index) => {
       if (position === 30 || position === 10) {
@@ -281,23 +286,18 @@ function init() {
 
   //Function to control the movement of all moving obstacles
   function moveObstacles() {
-    const goombasInterval = setInterval(moveGoombas, 500)
-    const bombInterval = setInterval(moveBomb, 500)
+    const goombasInterval = setInterval(moveGoombas, 600)
+    const bombInterval = setInterval(moveBomb, 600)
     const mushroomInterval = setInterval(moveBlueMushrooms, 700)
     const StarsInterval = setInterval(moveStars, 700)
-    const collisionInterval =setInterval(collision, 500)
+    const collisionInterval = setInterval(collision, 500)
   }
 
+  //EVENTS 
 
-  
-
-
-  //Events
   document.addEventListener('keydown', moveMario)
-
   startBtn.addEventListener('click', startGame)
-
-  resetBtn.forEach(button => button.addEventListener('click', startGame))
+  resetBtn.forEach(button => button.addEventListener('click', resetGame))
 
 }
 

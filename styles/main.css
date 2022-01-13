@@ -77,6 +77,12 @@ font-size: 50px;
 }
 
 
+/* .start-image {
+  width: 2px;
+  height: 200px;
+} */
+
+
 .win-popUp-container {
   position: fixed;
   display: flex;
@@ -149,7 +155,6 @@ position: fixed;
   height: 700px;
   width: 700px;
   background-color: hsl(95, 89%, 93%);
-  border: none;
   box-shadow: 0 0 20px 0 rgb(217, 246, 189);
   border-radius: 5%;
   color:hsl(140, 51%, 39%);
@@ -164,9 +169,9 @@ position: fixed;
 }
 
 .grid div.home {
-/* background-image: url('../assets/finish.jpeg');
+background-image: url('../assets/grid.png');
 background-repeat: no-repeat;
-background-size: cover; */
+background-size: cover;
 background-color: hsl(95, 89%, 93%);
 }
 
@@ -181,10 +186,17 @@ background-color:  rgb(154,205,50);
 
 .grid div.start {
 background-color: rgb(154,205,50);
+/* background-image: url('../assets/start.jpeg');
+background-repeat: no-repeat;
+background-size: cover;  */
+
 }
 
 .grid div.road {
-background-color:  rgb(154,205,50);
+background-color:  #b4b5b9;
+background-image: url('../assets/road-markings.jpeg');
+background-repeat: no-repeat;
+background-size: cover; 
 }
 
 .grid div.goomba {
@@ -200,44 +212,47 @@ background-size: contain;
 }
 
 .grid div.blue-mushroom {
-background-image: url('../assets/blue mushroom.png');
+  background-image: url('../assets/blue mushroom.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  }
+  
+
+.grid div.star {
+background-image: url('../assets/star.png');
 background-repeat: no-repeat;
 background-size: contain;
 }
 
-.grid div.star {
-  background-image: url('../assets/star.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  }
-
 .grid div.race-car {
-  background-image: url('../assets/mario-home.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  }
+background-image: url('../assets/mario-home.png');
+background-repeat: no-repeat;
+background-size: contain;
+}
 
 
 .grid div.mario  {
-  background-image: url('../assets/mario.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  }
+background-image: url('../assets/mario.png');
+background-repeat: no-repeat;
+background-size: contain;
+}
 
+.grid div.activate-mushroom {
+background-image: url('../assets/Mario Mushroom.png');
+background-repeat: no-repeat;
+background-size: contain;
+}
   
 
 
-/* .grid div.mario-mushroom  {
-  background-image: url('../assets/Mario Mushroom.png');
-  background-repeat: no-repeat;
-  background-size: contain;
+.grid div.activate-star  {
+background-image: url('../assets/Mario Star.png');
+background-repeat: no-repeat;
+background-size: contain;
 }
 
-.grid div.mario-stars  {
-  background-image: url('../assets/Mario Star.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
+
+
 
 
 

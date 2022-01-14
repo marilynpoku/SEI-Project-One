@@ -37,7 +37,7 @@ body{
   pointer-events: auto;
 }
 
-.start-game-popup  {
+.start-game-popup, .game-over-popup  {
   background-color: hsl(95, 89%, 93%);
   border: none;
   box-shadow: 0 0 20px 0 rgb(217, 246, 189);
@@ -47,21 +47,29 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-  width: 60vh;
+  text-align: center;
+  height: 70vh;
+  width: 70vh;
 }
 
-.start-game-popUp-container h1 {
-text-transform: uppercase;
-font-size: 50px;
+.win-popUp {
+  background-color: hsl(95, 89%, 93%);
+  border: none;
+  box-shadow: 0 0 20px 0 rgb(217, 246, 189);
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+  width: 80vh;
 }
-
 
 .start-popup-text {
   font-size: 20px;
-  text-align: center;
+  font-weight: bold;
 }
-
 
 .start-btn {
   font-size: 25px;
@@ -74,13 +82,23 @@ font-size: 50px;
   font-family: sans-serif;
   font-size: 30px;
   color:hsl(95, 89%, 93%);
+  cursor: pointer;
 }
 
-
-/* .start-image {
-  width: 2px;
-  height: 200px;
-} */
+.reset-btn {
+  font-size: 25px;
+  background-color: hsl(140, 51%, 39%);
+  border: none;
+  margin-top: 20px;
+  box-shadow: 0 0 20px 0 rgb(135, 200, 74);
+  border-radius: 18px;
+  width: 190px;
+  height: 60px;
+  font-family: sans-serif;
+  font-size: 30px;
+  color:hsl(95, 89%, 93%);
+  cursor: pointer;
+}
 
 
 .win-popUp-container {
@@ -94,7 +112,9 @@ font-size: 50px;
   left: 0;
   right: 0;
   transition: all 300ms;
-  background-color: yellow;
+  background-image: url('../assets/background.jpeg');
+  background-repeat: repeat;
+  background-size: cover;
   opacity: 0;
   pointer-events: none;
 }
@@ -104,8 +124,12 @@ font-size: 50px;
   pointer-events: auto;
 }
 
+.winner-image {
+  margin-top: 20px;
+}
+
 .game-over-popUp-container {
-position: fixed;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,6 +140,9 @@ position: fixed;
   right: 0;
   transition: all 300ms;
   background-color: white;
+  background-image: url('../assets/lose-game-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0;
   pointer-events: none;
 }
@@ -125,6 +152,13 @@ position: fixed;
   pointer-events: auto;
 }
 
+.game-over-txt {
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
 .score-container {
   display: flex;
   justify-content: space-evenly;
@@ -132,9 +166,9 @@ position: fixed;
 }
 
 .score-container h4 {
-  padding: 5px;
-  font-size: 20px;
-  color:hsl(221, 64%, 50%);
+  padding: 10px;
+  font-size: 25px;
+  color:#35b3ee;
   margin-bottom: 0;
 }
 
@@ -152,8 +186,8 @@ position: fixed;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: 700px;
-  width: 700px;
+  height: 550px;
+  width: 550px;
   background-color: hsl(95, 89%, 93%);
   box-shadow: 0 0 20px 0 rgb(217, 246, 189);
   border-radius: 5%;
@@ -169,88 +203,91 @@ position: fixed;
 }
 
 .grid div.home {
-background-image: url('../assets/grid.png');
-background-repeat: no-repeat;
-background-size: cover;
-background-color: hsl(95, 89%, 93%);
+  border: 5px red;
+  border-style: dashed;
+  background-color: white;
 }
 
-
 .grid div.river {
-background-color:cornflowerblue;
+  background-color:cornflowerblue;
 }
 
 .grid div.safe { 
-background-color:  rgb(154,205,50);
+  background-color:  rgb(154,205,50);
 }
 
 .grid div.start {
-background-color: rgb(154,205,50);
-/* background-image: url('../assets/start.jpeg');
-background-repeat: no-repeat;
-background-size: cover;  */
-
+  background-color: rgb(154,205,50);
 }
 
 .grid div.road {
-background-color:  #b4b5b9;
-background-image: url('../assets/road-markings.jpeg');
-background-repeat: no-repeat;
-background-size: cover; 
+  background-color:  #b4b5b9;
+  background-image: url('../assets/road-markings.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
 
 .grid div.goomba {
-background-image: url('../assets/goomba.png');
-background-repeat: no-repeat;
-background-size: contain; 
+  background-image: url('../assets/goomba.png');
+  background-repeat: no-repeat;
+  background-size: contain; 
 }
 
 .grid div.bomb {
-background-image: url('../assets/bomb.png');
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('../assets/bomb.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .grid div.blue-mushroom {
   background-image: url('../assets/blue mushroom.png');
   background-repeat: no-repeat;
   background-size: contain;
-  }
+}
   
 
 .grid div.star {
-background-image: url('../assets/star.png');
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('../assets/star.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .grid div.race-car {
-background-image: url('../assets/mario-home.png');
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('../assets/mario-home.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-
 .grid div.mario  {
-background-image: url('../assets/mario.png');
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('../assets/mario.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .grid div.activate-mushroom {
-background-image: url('../assets/Mario Mushroom.png');
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('../assets/Mario Mushroom.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
   
-
-
 .grid div.activate-star  {
-background-image: url('../assets/Mario Star.png');
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('../assets/Mario Star.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
+button {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(117, 167, 102, 0.979);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
 
 
 

@@ -15,6 +15,7 @@
   <div class="grid-container">
 
     <!-- Score container-->
+    <img src="assets/heading-game .png" alt="" srcset="">
     <div class="score-container">
       <h4>Lives:<span id="lives"></span></h4>
       <br>
@@ -26,13 +27,11 @@
     <div class="start-game-popUp-container activate-popup">
       <div class="start-game-popup">
         <div class="start-popup-text">
-          <h1>Ready for a challenge?</h1>
-          <P>Mario's reputation is on the line <br> Get Mario to the grids to defend his world title.
+          <img src="assets/heading.png" alt="">
+          <P>Mario's reputation is on the line.<br> Get Mario to the grids to defend his world title.
             <br> Avoid any obstacles on the way using the four arrow keys on your keyboard.
           </P>
           <button class="start-btn">START</button>
-          <div class="start-image">
-          </div>
         </div>
       </div>
     </div>
@@ -40,11 +39,9 @@
     <!-- Game over pop up -->
 
     <div class="game-over-popUp-container">
-      <div class="game-over-popUp">
-        <div class="game-over-image">
-          <!-- Add game over gif-->
-        </div>
-        <P>Better luck next time!</P>
+      <div class="game-over-popup">
+        <img src="assets/lose-heading.png" alt="">
+        <p class="game-over-txt">Mario has taken solitude in the mountains</p>
         <button class="reset-btn"> TRY AGAIN</button>
       </div>
     </div>
@@ -53,8 +50,9 @@
 
     <div class="win-popUp-container">
       <div class="win-popUp">
+        <img src="assets/winner-txt.png" alt="winner">
         <div class="winner-image">
-          <!-- Add winner gif-->
+          <img src="assets/winner - gif.gif" alt="mario-gif">
         </div>
         <button class="reset-btn">PLAY AGAIN</button>
       </div>
@@ -63,5 +61,8 @@
     <div class="grid"></div>
   
   </div>
+
+  <!-- Audio Tags -->
+  <audio id="start-game-audio"src=""></audio>
 </body>
 </html>

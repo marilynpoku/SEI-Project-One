@@ -2,6 +2,7 @@ function init() {
 
 
   // ELEMENTS 
+
   const grid = document.querySelector('.grid')
   const width = 10
   const cellCount = width * width
@@ -10,14 +11,15 @@ function init() {
   let lives = 3
   let score = 0
 
+
   //Mario
   const marioClass = 'mario'
   const marioStartPosition = 94
   let marioCurrentPosition = marioStartPosition
 
   const marioOnMushroomClass = 'activate-mushroom'
-  const marioOnStarClass  = 'activate-star'
- 
+  const marioOnStarClass = 'activate-star'
+
   //Goombas
   const goombas = [89, 87, 85, 81]
   const goombasClass = 'goomba'
@@ -27,11 +29,11 @@ function init() {
   const bombClass = 'bomb'
 
   //Blue Mushrooms
-  const blueMushroom = [24, 26, 40, 42, 44]
+  const blueMushroom = [24, 26, 28, 40, 42, 44]
   const blueMushroomClass = 'blue-mushroom'
 
   // Stars
-  const star = [34, 18, 12]
+  const star = [36, 30, 18, 12]
   const starClass = 'star'
 
   // Classes for styling the gird 
@@ -85,13 +87,13 @@ function init() {
 
   // Function to start the game
   function startGame() {
-    console.log('game started')
     startGameOverlay.classList.remove('activate-popup')
     createGrid()
     addMario(marioStartPosition)
     moveObstacles()
     displayLives()
     displayScore()
+
   }
 
   // Function to add the Mario
@@ -105,7 +107,7 @@ function init() {
   }
 
   // Function to remove Mario on mushrooms and obstacles
-  function removeMarioOnObstacles(){
+  function removeMarioOnObstacles() {
     cells[marioCurrentPosition].classList.remove(marioOnMushroomClass)
     cells[marioCurrentPosition].classList.remove(marioOnStarClass)
   }
@@ -139,6 +141,14 @@ function init() {
     gameOver()
   }
 
+  // // Function to play game audio
+  // function playGameAudio() {
+  //   const gameAudio = document.querySelector('.start-game-audio')
+  //   gameAudio.scr = '../assets/'
+
+
+  // }
+
   // Function to display lives
   function displayLives() {
     const livesRemaining = document.querySelector('#lives')
@@ -149,19 +159,19 @@ function init() {
   function displayScore() {
     const currentScore = document.querySelector('#score')
     currentScore.innerText = ` ${score}`
-    console.log(score)
   }
 
   // Function to resetGame
   function resetGame() {
     window.location.reload()
+
   }
 
   //Function for for game over
-  function gameOver(){
-    if (lives === 0 ) {
+  function gameOver() {
+    if (lives === 0) {
       gameOverOverlay.classList.add('activate-popup')
-    } 
+    }
   }
 
   //Function to check for win 
@@ -196,6 +206,7 @@ function init() {
       displayLives()
     } else {
       winGame()
+      gameOver()
     }
   }
 
@@ -286,12 +297,14 @@ function init() {
 
   //Function to control the movement of all moving obstacles
   function moveObstacles() {
-    const goombasInterval = setInterval(moveGoombas, 600)
-    const bombInterval = setInterval(moveBomb, 600)
-    const mushroomInterval = setInterval(moveBlueMushrooms, 700)
-    const StarsInterval = setInterval(moveStars, 700)
+    const goombasInterval = setInterval(moveGoombas, 450)
+    const bombInterval = setInterval(moveBomb, 450)
+    const mushroomInterval = setInterval(moveBlueMushrooms, 600)
+    const StarsInterval = setInterval(moveStars, 600)
     const collisionInterval = setInterval(collision, 500)
   }
+
+
 
   //EVENTS 
 

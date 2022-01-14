@@ -100,7 +100,6 @@ body{
   cursor: pointer;
 }
 
-
 .win-popUp-container {
   position: fixed;
   display: flex;
@@ -155,7 +154,7 @@ body{
 .game-over-txt {
   margin-top: 40px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 
@@ -167,7 +166,7 @@ body{
 
 .score-container h4 {
   padding: 10px;
-  font-size: 25px;
+  font-size: 18px;
   color:#35b3ee;
   margin-bottom: 0;
 }

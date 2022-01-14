@@ -7,6 +7,7 @@ function init() {
   const width = 10
   const cellCount = width * width
   const cells = []
+  const gameAudio = document.querySelector('#start-game-audio')
 
   let lives = 3
   let score = 0
@@ -93,7 +94,7 @@ function init() {
     moveObstacles()
     displayLives()
     displayScore()
-
+    playGameAudio()
   }
 
   // Function to add the Mario
@@ -141,13 +142,10 @@ function init() {
     gameOver()
   }
 
-  // // Function to play game audio
-  // function playGameAudio() {
-  //   const gameAudio = document.querySelector('.start-game-audio')
-  //   gameAudio.scr = '../assets/'
-
-
-  // }
+  // Function to play game audio
+  function playGameAudio() {
+    gameAudio.play()
+  }
 
   // Function to display lives
   function displayLives() {

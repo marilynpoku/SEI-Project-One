@@ -37,7 +37,7 @@ body{
   pointer-events: auto;
 }
 
-.start-game-popup, .game-over-popup  {
+.start-game-popup, .win-popUp  {
   background-color: hsl(95, 89%, 93%);
   border: none;
   box-shadow: 0 0 20px 0 rgb(217, 246, 189);
@@ -48,11 +48,11 @@ body{
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 70vh;
-  width: 70vh;
+  height: 80vh;
+  width: 80vh;
 }
 
-.win-popUp {
+.game-over-popup {
   background-color: hsl(95, 89%, 93%);
   border: none;
   box-shadow: 0 0 20px 0 rgb(217, 246, 189);
@@ -79,7 +79,6 @@ body{
   border-radius: 18px;
   width: 140px;
   height: 50px;
-  font-family: sans-serif;
   font-size: 30px;
   color:hsl(95, 89%, 93%);
   cursor: pointer;
@@ -94,7 +93,6 @@ body{
   border-radius: 18px;
   width: 190px;
   height: 60px;
-  font-family: sans-serif;
   font-size: 30px;
   color:hsl(95, 89%, 93%);
   cursor: pointer;
@@ -151,12 +149,9 @@ body{
   pointer-events: auto;
 }
 
-.game-over-txt {
-  margin-top: 40px;
-  font-weight: bold;
-  font-size: 25px;
+.lose-img {
+  margin-bottom: 20px;
 }
-
 
 .score-container {
   display: flex;
@@ -170,7 +165,6 @@ body{
   color:#35b3ee;
   margin-bottom: 0;
 }
-
 .grid-container {
   height: 100vh;
   display: flex;
@@ -213,10 +207,6 @@ body{
 
 .grid div.safe { 
   background-color:  rgb(154,205,50);
-}
-
-.grid div.start {
-  background-color: rgb(154,205,50);
 }
 
 .grid div.road {

@@ -7,7 +7,10 @@ function init() {
   const width = 10
   const cellCount = width * width
   const cells = []
+
   const gameAudio = document.querySelector('#start-game-audio')
+  const loseGameAudio = document.querySelector('#lose-game-audio')
+  const winGameAudio = document.querySelector('#win-game-audio')
 
   let lives = 3
   let score = 0
@@ -41,7 +44,6 @@ function init() {
   const homeClass = 'home'
   const riverClass = 'river'
   const safeClass = 'safe'
-  const startClass = 'start'
   const roadClass = 'road'
 
   //Overlay elements
@@ -58,28 +60,18 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      // cell.innerText = i
       grid.appendChild(cell)
       cells.push(cell)
 
-      if (i === 0 || i === 9) {
-        cell.classList.add(riverClass)
-      } else if (i >= 1 && i <= 8 && i % 2 === 0) {
+      if ((i === 0 || i === 9) || (i >= 1 && i <= 8 && i % 2 === 0) ||
+        (i >= 10 && i <= 49)) {
         cell.classList.add(riverClass)
       } else if (i >= 0 && i < 9 && i % 2 !== 0) {
         cell.classList.add(homeClass)
-      } else if (i >= 10 && i <= 49) {
-        cell.classList.add(riverClass)
-      } else if (i >= 50 && i <= 59) {
+      } else if ((i >= 50 && i <= 59) || (i >= 70 && i <= 79) || (i >= 90 && i <= 99)) {
         cell.classList.add(safeClass)
-      } else if (i >= 60 && i <= 69) {
+      } else if ((i >= 60 && i <= 69) || (i >= 80 && i <= 89)) {
         cell.classList.add(roadClass)
-      } else if (i >= 70 && i <= 79) {
-        cell.classList.add(safeClass)
-      } else if (i >= 80 && i <= 89) {
-        cell.classList.add(roadClass)
-      } else if (i >= 90 && i <= 99) {
-        cell.classList.add(startClass)
       } else {
         console.log('classes added')
       }
@@ -107,7 +99,7 @@ function init() {
     cells[position].classList.remove(marioClass)
   }
 
-  // Function to remove Mario on mushrooms and obstacles
+  // Function to remove Mario on mushrooms and star
   function removeMarioOnObstacles() {
     cells[marioCurrentPosition].classList.remove(marioOnMushroomClass)
     cells[marioCurrentPosition].classList.remove(marioOnStarClass)
@@ -147,6 +139,19 @@ function init() {
     gameAudio.play()
   }
 
+  // Function to play lose game audio
+  function playLoseGameAudio() {
+    loseGameAudio.play()
+    gameAudio.pause()
+  }
+
+  // Function to play win game audio
+  function playWinGameAudio() {
+    winGameAudio.play()
+    gameAudio.pause()
+  }
+
+
   // Function to display lives
   function displayLives() {
     const livesRemaining = document.querySelector('#lives')
@@ -165,10 +170,11 @@ function init() {
 
   }
 
-  //Function for for game over
+  //Function for game over
   function gameOver() {
     if (lives === 0) {
       gameOverOverlay.classList.add('activate-popup')
+      playLoseGameAudio()
     }
   }
 
@@ -176,6 +182,7 @@ function init() {
   function winGame() {
     if (score >= 4000) {
       winGameOverlay.classList.add('activate-popup')
+      playWinGameAudio()
     } else if (cells[marioCurrentPosition].classList.contains(homeClass)) {
       score += 1000
       displayScore()
@@ -243,7 +250,6 @@ function init() {
     if (cells[marioCurrentPosition].classList.contains(blueMushroomClass)) {
       if (marioCurrentPosition === 49 || marioCurrentPosition === 29) {
         removeMario(marioCurrentPosition)
-        //remove mario on a mushroom class from mario current position 
         cells[marioCurrentPosition].classList.remove(marioOnMushroomClass)
         marioCurrentPosition -= width
       }
@@ -302,10 +308,7 @@ function init() {
     const collisionInterval = setInterval(collision, 500)
   }
 
-
-
   //EVENTS 
-
   document.addEventListener('keydown', moveMario)
   startBtn.addEventListener('click', startGame)
   resetBtn.forEach(button => button.addEventListener('click', resetGame))

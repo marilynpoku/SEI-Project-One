@@ -110,7 +110,10 @@ The biggest challenge was the logic involved with the collision detection. At fi
 - Building a JavaScript game from scratch really helped boost my confidence and cement my knowledge in an area I found very challenging during the first two weeks of the course 
 - I felt a lot more comfortable with forEach loops and using multiple functions to achieve the functionality in the game, especially for getting the obstacles to move across the game.
 
+### Contact
 
+- Linkedin - https://www.linkedin.com/in/marilyn-poku
+- Email - marilynpoku@hotmail.com 
 
 
 

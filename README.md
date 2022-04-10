@@ -5,7 +5,7 @@
 
 # General Assembly: Software Engineering Immersive
 
-## Mario Grid Game 
+## Mario Inspired Frogger Game
 
 https://marilynpoku.github.io/SEI-Project-One/ 
 
